@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let user = {}; // Crear un objeto vacío
+
+        user.name = "Pablo";   // Asignar el valor "Pablo" a la propiedad name
+        user.surname = "Rochera";  // Asignar el valor "Rochera" a la propiedad surname
+        user.name = "Pete";   // Cambiar el valor de name a "Pete"
+        delete user.name;     // Eliminar la propiedad name del objeto
+
+        // Función para comprobar si el objeto está vacío
+        function isEmpty(obj) {
+            for (let key in obj) {
+                return false; // Si encuentra alguna propiedad, retorna false
+            }
+            return true; // Si no encuentra propiedades, retorna true
+        }
+
+        // Mostrar si el objeto está vacío o no
+        alert(isEmpty(user)); // true, porque se eliminó la propiedad name y sólo tiene surname
+    </script>
+
+</body>
+</html>

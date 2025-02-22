@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 4 - Información de Enlaces</title>
+    <script>
+        function contarEnlaces() {
+            const enlaces = document.getElementsByTagName('a');
+            alert(`Número total de enlaces: ${enlaces.length}`);
+        }
+
+        function mostrarReferencias() {
+            const enlaces = document.getElementsByTagName('a');
+            let referencias = 'Referencias de los enlaces:\n';
+            for (let enlace of enlaces) {
+                referencias += `- ${enlace.href}\n`;
+            }
+            alert(referencias);
+        }
+
+        function mostrarReferenciasPorParrafo() {
+            const parrafos = document.getElementsByTagName('p');
+            let mensaje = '';
+            for (let i = 0; i < parrafos.length; i++) {
+                const enlaces = parrafos[i].getElementsByTagName('a');
+                mensaje += `Párrafo ${i + 1}:\n`;
+                for (let enlace of enlaces) {
+                    mensaje += `- ${enlace.href}\n`;
+                }
+            }
+            alert(mensaje);
+        }
+    </script>
+</head>
+<body>
+    <h1>Actividad 4: Información de Enlaces</h1>
+    <p>Enlace 1: <a href="https://www.marca.com">Marca</a></p>
+    <p>
+        Enlace 2: <a href="https://www.as.com">AS</a> 
+        y Enlace 3: <a href="https://www.sport.es">Sport</a>
+    </p>
+    <p>
+        Enlace 4: <a href="https://www.mundodeportivo.com">Mundo Deportivo</a>, 
+        Enlace 5: <a href="https://www.lagazzettadellosport.it">La Gazzetta dello Sport</a> 
+        y Enlace 6: <a href="https://www.bbc.com/sport">BBC Sport</a>
+    </p>
+    <button onclick="contarEnlaces()">Número de enlaces</button>
+    <button onclick="mostrarReferencias()">Referencia de enlaces</button>
+    <button onclick="mostrarReferenciasPorParrafo()">Referencias por párrafo</button>
+</body>
+</html>

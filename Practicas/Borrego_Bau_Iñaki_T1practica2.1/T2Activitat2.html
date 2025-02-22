@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+    <meta charset="UTF-8">
+    <meta name="viewport" >
+    <title>T2Activitat2</title>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <script>
+        // Definición de la función que determinará la estación según el mes
+        function determinarEstacion() {
+            // Solicitar al usuario que ingrese un mes
+            const mes = prompt("Introduce un mes:").toLowerCase();
+            let estacion;
+
+            // Utilizamos una estructura switch para determinar la estación según el mes ingresado
+            switch (mes) {
+                case "diciembre": // Meses de invierno
+                case "enero":
+                case "febrero":
+                    estacion = "Invierno";
+                    break;
+                case "marzo": // Meses de primavera
+                case "abril":
+                case "mayo":
+                    estacion = "Primavera";
+                    break;
+                case "junio": // Meses de verano
+                case "julio":
+                case "agosto":
+                    estacion = "Verano";
+                    break;
+                case "septiembre": // Meses de otoño
+                case "octubre":
+                case "noviembre":
+                    estacion = "Otoño";
+                    break;
+                default: // Si el mes no es válido, mostramos un mensaje de error
+                    alert("Mes no válido.");
+                    return;
+            }
+
+            // Mostrar al usuario la estación correspondiente al mes ingresado
+            alert(`El mes de ${mes} pertenece a la estación: ${estacion}`);
+        }
+    </script>
+</head>
+<body>
+    <h1>Determinar Estación</h1>
+    <p>Haz clic en el botón para determinar la estación según el mes ingresado.</p>
+    <!-- Botón que ejecuta la función determinarEstacion al hacer clic -->
+    <button onclick="determinarEstacion()">Determinar Estación</button>
+</body>
+</html>

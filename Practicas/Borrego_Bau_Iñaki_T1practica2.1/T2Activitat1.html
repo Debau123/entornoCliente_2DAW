@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> T2Activitat1</title>
+    <script>
+        // Definición de la función que calculará el total incluyendo el IVA
+        
+        function calcularTotal() {
+            const precios = []; // Array para almacenar los precios de los artículos
+            let input; // Variable para almacenar el valor ingresado por el usuario
+
+            // Solicitar al usuario los precios de los artículos
+            do {
+                input = prompt("Introduce el precio del artículo (0 para terminar):");
+                if (input !== null && input.trim() !== "" && !isNaN(input)) {
+                    const precio = parseFloat(input); // Convertir el valor ingresado a número
+                    if (precio > 0) {
+                        precios.push(precio); // Añadir el precio al array si es válido
+                    }
+                }
+            } while (input !== "0" && input.trim() !== "");
+
+            // Verificar si el usuario ha ingresado al menos 5 precios
+            if (precios.length < 5) {
+                alert("Debes introducir al menos 5 precios válidos.");
+                return; // Salir de la función si no se cumple la condición
+            }
+
+            // Calcular el IVA (21%) y el total de los precios ingresados
+            const iva = precios.reduce((acc, precio) => acc + precio * 0.21, 0);
+            const total = precios.reduce((acc, precio) => acc + precio, 0) + iva;
+
+            // Mostrar el IVA y el precio total al usuario, redondeados a 2 decimales
+            alert(`IVA total: €${iva.toFixed(2)}\nPrecio total (con IVA): €${total.toFixed(2)}`);
+        }
+    </script>
+</head>
+<body>
+    
+    <h1>Cálculo de IVA y Precio Total</h1>
+    <p>Haz clic en el botón para calcular el IVA y el precio total de varios artículos.</p>
+    <button onclick="calcularTotal()">Calcular</button>
+</body>
+</html>

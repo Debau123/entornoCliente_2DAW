@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" >
+    <title>Acticidad6</title>
+    <script>
+        // Definición de la función para sumar los números ingresados por el usuario
+        function sumInput() {
+            const numeros = []; // Array para almacenar los números ingresados
+            let input;
+
+            // Solicitar al usuario ingresar números mediante prompt
+            do {
+                input = prompt("Introduce un número (deja vacío o presiona Cancelar para terminar):");
+                // Verificar si el valor ingresado es un número
+                if (input !== null && input.trim() !== "" && !isNaN(input)) {
+                    numeros.push(parseFloat(input)); // Convertir a número y agregar al array
+                }
+            } while (input !== null && input.trim() !== "" && !isNaN(input));
+
+            // Calcular la suma de todos los números en el array
+            const suma = numeros.reduce((acc, num) => acc + num, 0);
+
+            // Mostrar la suma al usuario
+            alert(`La suma de los números ingresados es: ${suma}`);
+        }
+    </script>
+</head>
+<body>
+    <h1>Suma de Números Ingresados</h1>
+    <p>Haz clic en el botón para ingresar números y calcular su suma.</p>
+    <!-- Botón que ejecuta la función sumInput al hacer clic -->
+    <button onclick="sumInput()">Calcular Suma</button>
+</body>
+</html>

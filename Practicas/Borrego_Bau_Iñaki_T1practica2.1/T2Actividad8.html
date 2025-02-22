@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barajar Arreglo</title>
+    <script>
+        // Definición de la función para barajar (reordenar aleatoriamente) un arreglo
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                // Generar un índice aleatorio entre 0 y i
+                const j = Math.floor(Math.random() * (i + 1));
+                // Intercambiar los elementos en las posiciones i y j
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        // Función para ejecutar el barajado del arreglo
+        function ejecutarShuffle() {
+            const array = []; // Array para almacenar los números ingresados
+            let input;
+
+            // Solicitar al usuario ingresar números mediante prompt
+            do {
+                input = prompt("Introduce un número (0 para terminar):");
+                if (input !== "0" && input !== null && input.trim() !== "" && !isNaN(input)) {
+                    array.push(parseFloat(input)); // Convertir a número y agregar al array
+                }
+            } while (input !== "0" && input !== null && input.trim() !== "" && !isNaN(input));
+
+            // Verificar si el arreglo tiene al menos dos elementos para ser barajado
+            if (array.length < 2) {
+                alert("Debes ingresar al menos dos números para poder barajar.");
+                return;
+            }
+            // Barajar el arreglo usando la función shuffle
+            shuffle(array);
+            // Asegurarse de que el resultado sea diferente al orden original
+            const originalArray = [...array];
+            shuffle(array);
+            while (array.every((val, index) => val === originalArray[index])) {
+                shuffle(array);
+            }
+
+            // Mostrar el arreglo barajado al usuario
+            alert(`Arreglo barajado: ${array.join(", ")}`);
+        }
+    </script>
+</head>
+<body>
+    <h1>Barajar Arreglo</h1>
+    <p>Haz clic en el botón para ingresar números y barajarlos aleatoriamente.</p>
+    <!-- Botón que ejecuta la función ejecutarShuffle al hacer clic -->
+    <button onclick="ejecutarShuffle()">Barajar Arreglo</button>
+</body>
+</html>

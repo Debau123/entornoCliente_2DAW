@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 1 </title>
+    <script>
+        function anadirParrafo() {
+            const nuevoParrafo = document.createElement('p');
+            const texto = document.createTextNode('Párrafo añadido');
+            nuevoParrafo.appendChild(texto);
+            document.getElementById('divisor').appendChild(nuevoParrafo);
+        }
+
+        function insertarParrafo() {
+            const nuevoParrafo = document.createElement('p');
+            const texto = document.createTextNode('Párrafo insertado');
+            nuevoParrafo.appendChild(texto);
+            const divisor = document.getElementById('divisor');
+            divisor.insertBefore(nuevoParrafo, divisor.children[1]);
+        }
+
+        function reemplazarParrafo() {
+            const divisor = document.getElementById('divisor');
+            if (divisor.children.length > 1) {
+                const parrafoARemplazar = divisor.children[1];
+                const nuevoParrafo = document.createElement('p');
+                nuevoParrafo.textContent = 'Párrafo reemplazado';
+                divisor.replaceChild(nuevoParrafo, parrafoARemplazar);
+            } else {
+                alert('No hay suficiente contenido para reemplazar.');
+            }
+        }
+
+        function borrarParrafo() {
+            const divisor = document.getElementById('divisor');
+            if (divisor.children.length > 1) {
+                divisor.removeChild(divisor.children[1]);
+            } else {
+                alert('No hay párrafos para borrar.');
+            }
+        }
+
+        function clonarDiv() {
+            const divisor = document.getElementById('divisor');
+            const clon = divisor.cloneNode(true);
+            document.body.appendChild(clon);
+        }
+    </script>
+</head>
+<body>
+    <h1>Actividad 1: Manipulación de Párrafos</h1>
+    <div id="divisor">
+        <p>Este es mi primer párrafo</p>
+    </div>
+    <button onclick="anadirParrafo()">Añadir párrafo</button>
+    <button onclick="insertarParrafo()">Insertar párrafo</button>
+    <button onclick="reemplazarParrafo()">Reemplazar párrafo</button>
+    <button onclick="borrarParrafo()">Borrar párrafo</button>
+    <button onclick="clonarDiv()">Clonar div</button>
+</body>
+</html>

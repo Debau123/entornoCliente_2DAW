@@ -1,0 +1,128 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Contenedor principal */
+.contenedor-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Caja del destino */
+.destino-container {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  text-align: center;
+}
+
+/* Imagen del destino */
+.destino-imagen {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+/* Botones de navegación */
+.botones {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+/* Formulario de votación */
+.formulario-votacion {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Títulos */
+h1, h2, h3 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Campos del formulario */
+.formulario-votacion input,
+.formulario-votacion select {
+  display: block;
+  width: 100%;
+  padding: px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* Botones del formulario */
+.formulario-votacion button {
+  width: 40%;
+  font-size: 16px;
+  padding: 12px;
+}
+
+/* Ajuste especial para los botones de formulario */
+.botones-formulario {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+/* Responsive para móviles */
+@media (max-width: 600px) {
+  .destino-container, .formulario-votacion {
+    max-width: 90%;
+  }
+
+  .formulario-votacion button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .botones-formulario {
+    flex-direction: column;
+  }
+}

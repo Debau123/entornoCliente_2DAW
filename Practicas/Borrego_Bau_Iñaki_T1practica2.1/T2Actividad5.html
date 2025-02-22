@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T2Actividad5</title>
+    <script>
+        // Definición del objeto calculadora
+        const calculator = {
+            // Método para leer dos valores y almacenarlos como propiedades del objeto
+            read() {
+                this.a = parseFloat(prompt("Introduce el valor de 'a':"));
+                this.b = parseFloat(prompt("Introduce el valor de 'b':"));
+            },
+            
+            // Método para sumar los valores almacenados
+            sum() {
+                return this.a + this.b;
+            },
+            
+            // Método para multiplicar los valores almacenados
+            mul() {
+                return this.a * this.b;
+            },
+
+            // Método para restar los valores almacenados
+            rest() {
+                return this.a - this.b;
+            },
+
+            // Método para dividir los valores almacenados
+            divi() {
+                if (this.b !== 0) {
+                    return this.a / this.b;
+                } else {
+                    return "Error: División por cero";
+                }
+            },
+
+            // Método para obtener el módulo de los valores almacenados
+            modu() {
+                return this.a % this.b;
+            }
+        };
+
+        // Definición de la función para ejecutar la calculadora
+        function ejecutarCalculadora() {
+            // Leer los valores de 'a' y 'b'
+            calculator.read();
+
+            // Solicitar al usuario la operación a realizar
+            const operacion = prompt("Introduce la operación a realizar (sum, mul, rest, divi, modu):").toLowerCase();
+            let resultado;
+
+            // Determinar la operación a realizar y calcular el resultado
+            switch (operacion) {
+                case "sum":
+                    resultado = calculator.sum();
+                    break;
+                case "mul":
+                    resultado = calculator.mul();
+                    break;
+                case "rest":
+                    resultado = calculator.rest();
+                    break;
+                case "divi":
+                    resultado = calculator.divi();
+                    break;
+                case "modu":
+                    resultado = calculator.modu();
+                    break;
+                default:
+                    alert("Operación no válida.");
+                    return;
+            }
+
+            // Mostrar el resultado de la operación al usuario
+            alert(`El resultado de la operación ${operacion} es: ${resultado}`);
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora en JavaScript</h1>
+    <p>Haz clic en el botón para realizar operaciones con la calculadora.</p>
+    <!-- Botón que ejecuta la función ejecutarCalculadora al hacer clic -->
+    <button onclick="ejecutarCalculadora()">Ejecutar Calculadora</button>
+</body>
+</html>

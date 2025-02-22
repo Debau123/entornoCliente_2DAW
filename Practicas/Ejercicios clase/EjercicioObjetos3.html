@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let calculator = {
+            // Método para pedir dos valores y almacenarlos
+            read() {
+              this.a = +prompt('Introduce el primer número:', 0);
+              this.b = +prompt('Introduce el segundo número:', 0);
+            },
+          
+            // Método para sumar los valores
+            sum() {
+              return this.a + this.b;
+            },
+          
+            // Método para multiplicar los valores
+            mul() {
+              return this.a * this.b;
+            }
+          };
+          
+          calculator.read();
+          alert(calculator.sum());
+          alert(calculator.mul())
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 3 - Cambio de Color</title>
+    <style>
+        #colorDiv {
+            width: 300px;
+            height: 150px;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 150px;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function cambiarColor(color) {
+            document.getElementById('colorDiv').style.backgroundColor = color;
+        }
+    </script>
+</head>
+<body>
+    <h1>Actividad 3: Cambio de Color</h1>
+    <div id="colorDiv">Bienvenido a esta página de test de colores</div>
+    <button onclick="cambiarColor('blue')">Azul</button>
+    <button onclick="cambiarColor('green')">Verde</button>
+    <button onclick="cambiarColor('white')">Restaurar color inicial</button>
+</body>
+</html>

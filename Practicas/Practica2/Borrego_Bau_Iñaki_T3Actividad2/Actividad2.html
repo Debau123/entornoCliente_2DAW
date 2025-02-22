@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Presupuestos</title>
+</head>
+<body>
+    <h1>Generador de Presupuestos</h1>
+
+
+    <form id="presupuestoForm">
+        <h3>Selecciona el procesador</h3>
+        <input type="radio" name="procesador" value="380" required> Intel i7 11700k - 380€<br>
+        <input type="radio" name="procesador" value="400"> AMD Ryzen 7 5800x - 400€<br>
+        <input type="radio" name="procesador" value="200"> ARM - 200€<br>
+
+        <h3>Selecciona la caja</h3>
+        <input type="radio" name="caja" value="100" required> Caja ATX - 100€<br>
+        <input type="radio" name="caja" value="150"> Caja Micro-ATX - 150€<br>
+        <input type="radio" name="caja" value="80"> Caja Mini-ITX - 80€<br>
+
+        <h3>Selecciona la refrigeración</h3>
+        <input type="radio" name="refrigeracion" value="50" required> Refrigeración líquida - 50€<br>
+        <input type="radio" name="refrigeracion" value="30"> Refrigeración por aire - 30€<br>
+        <input type="radio" name="refrigeracion" value="20"> Sin refrigeración - 20€<br>
+
+        <h3>Selecciona el monitor</h3>
+        <input type="radio" name="monitor" value="300" required> Monitor 4K - 300€<br>
+        <input type="radio" name="monitor" value="200"> Monitor FullHD - 200€<br>
+        <input type="radio" name="monitor" value="100"> Monitor HD - 100€<br>
+
+        <h3>Selecciona la gráfica</h3>
+        <input type="radio" name="grafica" value="500" required> RTX 3080 - 500€<br>
+        <input type="radio" name="grafica" value="350"> GTX 1660 - 350€<br>
+        <input type="radio" name="grafica" value="250"> GTX 1050 - 250€<br>
+
+        <br>
+        <button type="button" onclick="calcularPresupuesto()">Calcular Presupuesto</button>
+    </form>
+
+    <h2>Presupuesto final</h2>
+    <div id="tablaPresupuesto"></div>
+
+ 
+
+    <script src="Actividad2.js"></script>
+</body>
+</html>

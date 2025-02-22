@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad7</title>
+    <script>
+        // Definición de la clase Calculator para crear objetos calculadores
+        class Calculator {
+            constructor() {
+                this.methods = {
+                    "+": (a, b) => a + b,
+                    "-": (a, b) => a - b
+                };
+            }
+
+            // Método para realizar una operación con un string en el formato "número operador número"
+            calculate(str) {
+                const [a, operator, b] = str.split(" ");
+                const numA = parseFloat(a);
+                const numB = parseFloat(b);
+
+                // Verificar si los números son válidos y si el operador está definido
+                if (isNaN(numA) || isNaN(numB) || !this.methods[operator]) {
+                    return "Operación no válida";
+                }
+
+                return this.methods[operator](numA, numB);
+            }
+
+            // Método para agregar un nuevo método de operación
+            addMethod(name, func) {
+                this.methods[name] = func;
+            }
+        }
+
+        // Función para ejecutar la calculadora
+        function ejecutarCalculadoraExtensible() {
+            const calc = new Calculator();
+
+            // Agregar métodos adicionales: multiplicación, división y potencia
+            calc.addMethod("*", (a, b) => a * b);
+            calc.addMethod("/", (a, b) => a / b);
+            calc.addMethod("**", (a, b) => a ** b);
+
+            // Solicitar al usuario la operación a realizar
+            const operacion = prompt("Introduce la operación a realizar (ejemplo: '3 + 7'):");
+            const resultado = calc.calculate(operacion);
+
+            // Mostrar el resultado de la operación al usuario
+            alert(`El resultado de la operación es: ${resultado}`);
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora Extensible</h1>
+    <p>Haz clic en el botón para realizar operaciones con la calculadora extensible.</p>
+    <!-- Botón que ejecuta la función ejecutarCalculadoraExtensible al hacer clic -->
+    <button onclick="ejecutarCalculadoraExtensible()">Ejecutar Calculadora Extensible</button>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" >
+    <title>Actividad4</title>
+    <script>
+        // Definición de la función para redimensionar la pantalla
+        function redimensionarPantalla() {
+            // Verificar si el navegador es Google Chrome
+            if (navigator.userAgent.toLowerCase().includes("chrome")) {
+                // Si es Google Chrome, redimensionar la ventana a 500x500
+                window.resizeTo(500, 500);
+            } else {
+                // Si no es Google Chrome, mostrar un mensaje de error
+                alert("Operación no permitida con este navegador.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Redimensionar Pantalla</h1>
+    <p>Haz clic en el botón para redimensionar la pantalla si estás usando Google Chrome.</p>
+    <!-- Botón que ejecuta la función redimensionarPantalla al hacer clic -->
+    <button onclick="redimensionarPantalla()">Redimensionar Pantalla</button>
+</body>
+</html>

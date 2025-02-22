@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" >
+    <title>Actividad 4</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        #field {
+            background: url('https://en.js.cx/clipart/field.svg') no-repeat center;
+            width: 800px;
+            height: 500px;
+            position: relative;
+            margin: 20px auto;
+            border: 1px solid #000;
+        }
+        .draggable {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            cursor: pointer;
+        }
+        #coca {
+            background: url('./imagenes/coca.jpg') no-repeat center;
+            background-size: cover;
+        }
+        #pepsi {
+            background: url('./imagenes/pepsi.jpg') no-repeat center;
+            background-size: cover;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Actividad 4: Arrastrar Imágenes</h1>
+    <div id="field">
+        <div class="draggable" id="coca" style="top: 50px; left: 50px;"></div>
+        <div class="draggable" id="pepsi" style="top: 150px; left: 150px;"></div>
+    </div>
+
+    <script>
+        let currentItem = null;
+        let shiftX, shiftY;
+
+        document.addEventListener('mousedown', (event) => {
+            const target = event.target.closest('.draggable');
+            if (!target) return;
+
+            currentItem = target;
+            const rect = target.getBoundingClientRect();
+            shiftX = event.clientX - rect.left;
+            shiftY = event.clientY - rect.top;
+
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', onMouseUp);
+        });
+
+        function onMouseMove(event) {
+            if (!currentItem) return;
+
+            const field = document.getElementById('field');
+            const fieldRect = field.getBoundingClientRect();
+
+            let newLeft = event.clientX - shiftX - fieldRect.left;
+            let newTop = event.clientY - shiftY - fieldRect.top;
+
+            newLeft = Math.max(0, Math.min(newLeft, field.offsetWidth - currentItem.offsetWidth));
+            newTop = Math.max(0, Math.min(newTop, field.offsetHeight - currentItem.offsetHeight));
+
+            currentItem.style.left = newLeft + 'px';
+            currentItem.style.top = newTop + 'px';
+        }
+
+        function onMouseUp() {
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+            currentItem = null;
+        }
+    </script>
+</body>
+</html>

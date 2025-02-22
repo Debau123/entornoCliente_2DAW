@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" >
+    <title>Actividad 1 ¡</title>
+    <style>
+        .hidden { display: none; }
+    </style>
+    <script>
+        function desaparecerBoton(event) {
+            event.target.classList.add('hidden');
+        }
+
+        function mostrarMensaje() {
+            alert('Has pulsado sobre el botón');
+        }
+
+        function toggleMenu(menuId) {
+            const menu = document.getElementById(menuId);
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Actividad 1: Eventos con Botones</h1>
+
+    <!-- Botón Mágico -->
+    <button onclick="desaparecerBoton(event)">Objeto mágico</button>
+
+    <!-- Botón Pulsador -->
+    <button onclick="mostrarMensaje()">Pulsador</button>
+
+    <!-- Botón Desplegable: Películas -->
+    <button onclick="toggleMenu('peliculasMenu')">Películas</button>
+    <ul id="peliculasMenu" class="hidden">
+        <li>Salvar al soldado Ryan</li>
+        <li>Avatar</li>
+        <li>Thor</li>
+    </ul>
+
+    <!-- Botón Desplegable: Series -->
+    <button onclick="toggleMenu('seriesMenu')">Series</button>
+    <ul id="seriesMenu" class="hidden">
+        <li>Hermanos de sangre</li>
+        <li>Los Soprano</li>
+        <li>The Wire</li>
+    </ul>
+</body>
+</html>

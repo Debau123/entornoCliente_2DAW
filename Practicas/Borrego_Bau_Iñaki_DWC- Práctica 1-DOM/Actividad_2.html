@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 2 </title>
+    <script>
+        function anadirElemento() {
+            const nuevoElemento = document.createElement('li');
+            const texto = document.createTextNode('Nuevo elemento añadido');
+            nuevoElemento.appendChild(texto);
+            document.getElementById('listaelemen').appendChild(nuevoElemento);
+        }
+
+        function insertarElemento() {
+            const nuevoElemento = document.createElement('li');
+            const texto = document.createTextNode('Nuevo elemento insertado');
+            nuevoElemento.appendChild(texto);
+            const lista = document.getElementById('listaelemen');
+            lista.insertBefore(nuevoElemento, lista.children[1]);
+        }
+
+        function reemplazarElemento() {
+            const lista = document.getElementById('listaelemen');
+            if (lista.children.length > 1) {
+                const elementoARemplazar = lista.children[1];
+                const nuevoElemento = document.createElement('li');
+                nuevoElemento.textContent = 'Elemento reemplazado';
+                lista.replaceChild(nuevoElemento, elementoARemplazar);
+            } else {
+                alert('No hay suficiente contenido para reemplazar.');
+            }
+        }
+
+        function borrarElemento() {
+            const lista = document.getElementById('listaelemen');
+            if (lista.children.length > 0) {
+                lista.removeChild(lista.lastChild);
+            } else {
+                alert('No hay elementos para borrar.');
+            }
+        }
+
+        function clonarLista() {
+            const lista = document.getElementById('listaelemen');
+            const clon = lista.cloneNode(true);
+            document.body.appendChild(clon);
+        }
+
+        function crearSublistaDOM() {
+            const lista = document.getElementById('listaelemen');
+            const sandbox = lista.children[0];
+            const sublista = document.createElement('ul');
+            const subElemento = document.createElement('li');
+            subElemento.textContent = 'Subelemento creado con DOM';
+            sublista.appendChild(subElemento);
+            sandbox.appendChild(sublista);
+        }
+
+        function crearSublistaInnerHTML() {
+            const lista = document.getElementById('listaelemen');
+            const sandbox = lista.children[0];
+            sandbox.innerHTML += '<ul><li>Subelemento creado con innerHTML</li></ul>';
+        }
+    </script>
+</head>
+<body>
+    <h1>Actividad 2: Manipulación de Listas</h1>
+    <ul id="listaelemen">
+        <li>Sandbox</li>
+        <li>Deportes</li>
+        <li>RPG</li>
+    </ul>
+    <button onclick="anadirElemento()">Añadir elemento</button>
+    <button onclick="insertarElemento()">Insertar elemento</button>
+    <button onclick="reemplazarElemento()">Reemplazar elemento</button>
+    <button onclick="borrarElemento()">Borrar elemento</button>
+    <button onclick="clonarLista()">Clonar lista completa</button>
+    <button onclick="crearSublistaDOM()">Crear sublista dentro de Sandbox con DOM</button>
+    <button onclick="crearSublistaInnerHTML()">Crear sublista dentro de Sandbox con innerHTML</button>
+</body>
+</html>
